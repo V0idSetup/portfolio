@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio — Arthur CAUMONT · ENSEEIHT</title>
+  <meta name="description" content="E-portfolio d'un étudiant en électronique à l'ENSEEIHT.">
+  <!-- applique le thème avant l'affichage pour éviter un flash blanc -->
+  <script>
+    try {
+      var t = localStorage.getItem("theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#accueil" data-i18n-aria="aria_home">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span id="brand-name">Portfolio</span>
+  </a>
+  <nav id="nav" data-i18n-aria="aria_nav">
+    <a href="#apropos" data-i18n="nav_about">Présentation</a>
+    <!-- les liens vers les sections de projets sont ajoutés par main.js -->
+  </nav>
+  <div class="tools">
+    <button class="tool-btn lang-btn" id="lang-btn" type="button"></button>
+    <button class="tool-btn theme-btn" id="theme-btn" type="button" data-i18n-aria="aria_theme">
+      <span class="ico-moon" aria-hidden="true">☾</span><span class="ico-sun" aria-hidden="true">☀</span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="accueil">
+    <canvas id="scope" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <p class="mono hero-tag"><span class="dot"></span><span id="hero-ecole"></span></p>
+      <h1 id="hero-nom"></h1>
+      <p class="hero-titre" id="hero-titre"></p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projets-start" data-i18n="hero_projects">Voir mes projets</a>
+        <a class="btn btn-ghost" id="hero-linkedin" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ À PROPOS ============ -->
+  <section class="section" id="apropos">
+    <div class="wrap about">
+      <div class="about-photo no-photo">
+        <img id="about-photo" alt="">
+        <span class="initials" id="about-initials" aria-hidden="true"></span>
+      </div>
+      <div class="about-text">
+        <p class="ref mono" data-i18n="about_ref">00 — PRÉSENTATION</p>
+        <h2 data-i18n="about_title">Qui suis-je ?</h2>
+        <div id="about-body"></div>
+        <ul class="about-links" id="about-links"></ul>
+        <h3 class="mono small-title" data-i18n="skills">Compétences</h3>
+        <ul class="skill-legend" id="skill-legend"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJETS (générés par main.js) ============ -->
+  <div id="projets-start"></div>
+  <div id="projets"></div>
+  <div id="carriere"></div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span class="mono" id="footer-text"></span>
+    <a href="#accueil" class="mono" data-i18n="footer_top">↑ Haut de page</a>
+  </div>
+</footer>
+
+<!-- ============ MODALE PROJET ============ -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <article class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" data-close data-i18n-aria="aria_close">✕</button>
+    <div id="modal-content"></div>
+  </article>
+</div>
+
+<!-- ============ LIGHTBOX IMAGES ============ -->
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-btn lb-close" data-i18n-aria="aria_close">✕</button>
+  <button class="lb-btn lb-prev" data-i18n-aria="aria_prev">‹</button>
+  <img id="lb-img" alt="">
+  <button class="lb-btn lb-next" data-i18n-aria="aria_next">›</button>
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/competences.js"></script>
+<script src="js/projets.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
