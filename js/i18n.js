@@ -30,6 +30,7 @@ const I18N = {
     aria_prev: "Précédente",
     aria_next: "Suivante",
     other_lang: "EN",
+    cv_label: "Mon CV",
     title_suffix: "Portfolio électronique"
   },
   en: {
@@ -57,6 +58,7 @@ const I18N = {
     aria_prev: "Previous",
     aria_next: "Next",
     other_lang: "FR",
-    title_suffix: "ENSEEIHT"
+    cv_label: "My CV",
+    title_suffix: "Electronics portfolio"
   }
 };
