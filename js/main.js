@@ -58,10 +58,15 @@
     $("#hero-titre").textContent = tr(PROFIL.titre);
     $("#hero-ecole").textContent = tr(PROFIL.ecole);
     $("#hero-linkedin").href = PROFIL.linkedin;
+    const cv = tr(PROFIL.cv);   // CV : un seul fichier, ou { fr: "...", en: "..." }
+    const heroCv = $("#hero-cv");
+    heroCv.style.display = cv ? "" : "none";
+    if (cv) { heroCv.href = cv; heroCv.textContent = ui("cv_label") + " ↗"; }
     $("#about-initials").textContent = nom.split(/\s+/).map(w => w[0]).slice(0, 2).join("").toUpperCase();
     $("#about-body").innerHTML = paras(PROFIL.presentation).map(t => `<p>${esc(t)}</p>`).join("");
     const links = $("#about-links");
     links.innerHTML = `<li><a class="btn btn-ghost" href="${esc(PROFIL.linkedin)}" target="_blank" rel="noopener">LinkedIn ↗</a></li>`;
+    if (cv) links.innerHTML += `<li><a class="btn btn-ghost" href="${esc(cv)}" target="_blank" rel="noopener">${esc(ui("cv_label"))} ↗</a></li>`;
     if (PROFIL.email) links.innerHTML += `<li><a class="btn btn-ghost" href="mailto:${esc(PROFIL.email)}">${esc(PROFIL.email)}</a></li>`;
     $("#footer-text").textContent = `© ${new Date().getFullYear()} ${nom}`;
 
