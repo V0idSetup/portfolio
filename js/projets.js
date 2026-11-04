@@ -22,6 +22,10 @@ const PROFIL = {
     en: "ENSEEIHT — Electronics (3EA, 1st year) · Toulouse"
   },
   linkedin: "https://www.linkedin.com/in/arthur-caumont/",
+  // CV : dépose ton PDF dans assets/ puis mets son chemin ici.
+  // Un seul fichier : "assets/cv.pdf"   |   un par langue : { fr: "assets/cv-fr.pdf", en: "assets/cv-en.pdf" }
+  // "" = bouton masqué.
+  cv: "assets/cv.pdf",
   email: "arthur.caumont@etu.inp-n7.fr",     // laisse "" pour masquer
   // Paragraphes de la section Présentation
   presentation: {
